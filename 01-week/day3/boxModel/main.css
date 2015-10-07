@@ -1,0 +1,38 @@
+#container {
+  height: 1000px;
+  width: 1000px;
+  background-color: gray;
+  position: relative;
+}
+
+#square1 {
+  background-color: blue;
+  height: 1000px;
+  width: 500px;
+  position: absolute;
+  left: 0;
+}
+
+#square2 {
+  background-color: #323540;
+  height:1000px;
+  width: 500px;
+  position: absolute;
+  right: 0;
+}
+
+#square3 {
+  background-color: purple;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+#square4 {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  border-radius: 50%;
+}

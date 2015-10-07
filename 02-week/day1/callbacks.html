@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Digital Watch</title>
+  </head>
+  <body>
+    <div>
+      <h1>Time goes here</h1>
+    </div>
+    <button id="stop-time">Stop Time</button>
+    <script type="text/javascript">
+      var myH1 = document.querySelector('h1');
+      var myButton = document.querySelector('#stop-time');
+
+      function updateTime(){
+        myH1.innerText = Date();
+      }
+
+      function stopTime(){
+        myH1.innerText = "Time has stopped";
+      }
+
+      var reallyStopTime = window.setInterval(updateTime, 1000);
+
+      myButton.addEventListener('click', function(){
+        clearInterval(reallyStopTime);
+      })
+
+    </script>
+  </body>
+</html>

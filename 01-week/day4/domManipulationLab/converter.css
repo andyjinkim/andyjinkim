@@ -1,0 +1,58 @@
+#answer {
+  text-align: center;
+}
+
+#application {
+  text-align: center;
+}
+
+#convert {
+  left: 228px;
+  bottom: 15px;
+}
+
+#title {
+  border-bottom: 1px dashed black;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+#fAnswer {
+  border-bottom: 1px dashed black;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+#answer {
+  border-bottom: 1px dashed black;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+#F {
+  margin-left: 100px;
+  margin-top: -45px;
+  font-size: 42px;
+}
+
+#C {
+  margin-left: 100px;
+  margin-top: -45px;
+  font-size: 42px;
+}
+
+#fahrenheit {
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#celsius {
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 5px;
+}
