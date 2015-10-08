@@ -23,6 +23,7 @@ $checkboxes.click(strikethrough);
 $('.btn').click(function(){
   text = $('#todo')
   $('.list').last().append('<p><input type="checkbox" class="checkboxes"><i class="glyphicon glyphicon-star"></i><span>'+ text.val() +'</span><i class="glyphicon glyphicon-remove"></i></p>');
+  text.val('');
   $('p').last().hide();
   $('p').last().show('slow');
   event.preventDefault();
