@@ -33,7 +33,6 @@
     var calcs = document.getElementsByClassName("calcs");
     var typingArray = [];
     var ele = document.getElementById("output");
-    var calculations = document.getElementsByClassName("calc");
     var stringOutput;
     var calculateArray;
     var evaluate = document.getElementsByClassName("eval");
@@ -44,11 +43,7 @@
     }
 
     for (i=0; i<calcs.length; i++){
-      calcs[i].addEventListener("click", displayOutput);
-    }
-
-    for {
-      evaluate.addEventListener("click", evaluateOutput);
+      calcs[i].addEventListener("click", evaluateOutput);
     }
 
     function displayOutput(){
@@ -56,19 +51,20 @@
       stringOutput = typingArray.join('');
       ele.innerText=stringOutput;
     }
+
     // live <
 
+
+      evaluate[0].addEventListener("click", evaluateOutput);
+
+
     function evaluateOutput(){
-      eval(ele).innerText=stringOutput;
+      ele.innerHTML=eval(stringOutput);
     }
 
-    // for (i=0; i<calculations.length; i++){
-    //   calculations[i].addEventListener("click", calculate);
-    // }
-
-    // function pushOutput() {
-    //   calculateArray = stringOutput.push(this.innerText);
-    // }
+    function pushOutput() {
+      calculateArray = stringOutput.push(this.innerText);
+    }
 
   </script>
   </body>
