@@ -5,21 +5,33 @@ var $span = $('span')
 var $paras = $('p')
 var text = $('#todo')
 
-$exes.click(function(){
-  $(this).parent().remove();
-  console.log('this is working');
-})
+function removeDiv() {
+  $(this).parent().hide('slow');
+}
+$exes.click(removeDiv);
 
-$star.click(function(){
+function colorStar(){
   $(this).toggleClass('active');
-})
+}
+$star.click(colorStar);
 
-$checkboxes.click(function(){
+function strikethrough(){
   $(this).next().next().toggleClass('strikethrough');
-  console.log('this is working');
-})
+}
+$checkboxes.click(strikethrough);
 
 $('.btn').click(function(){
+  text = $('#todo')
   $('.list').last().append('<p><input type="checkbox" class="checkboxes"><i class="glyphicon glyphicon-star"></i><span>'+ text.val() +'</span><i class="glyphicon glyphicon-remove"></i></p>');
+  $('p').last().hide();
+  $('p').last().show('slow');
   event.preventDefault();
+  $exes = $('.glyphicon-remove')
+  $star = $('.glyphicon-star')
+  $checkboxes = $('.checkboxes')
+  $span = $('span')
+  $paras = $('p')
+  $exes.click(removeDiv);
+  $star.click(colorStar);
+  $checkboxes.click(strikethrough);
 })
