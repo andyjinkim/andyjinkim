@@ -1,0 +1,42 @@
+header {
+  text-align: center;
+}
+
+.box {
+ border: black 2px solid;
+ width: 50px;
+ height: 50px;
+ display: inline-block;
+ vertical-align: top;
+ margin-top: -2px;
+ margin-right: -6px;
+}
+
+.black {
+ border: black 2px solid;
+ width: 50px;
+ height: 50px;
+ display: inline-block;
+ vertical-align: top;
+ margin-top: -2px;
+ margin-right: -6px;
+ background-image: url("http://alloutput.com/wp-content/uploads/2013/11/black-circle-mask-to-fill-compass-outline.png");
+ background-size: 100%;
+
+}
+
+.white {
+ border: black 2px solid;
+ width: 50px;
+ height: 50px;
+ display: inline-block;
+ vertical-align: top;
+ margin-top: -2px;
+ margin-right: -6px;
+ background-image: url("http://www.iconsdb.com/icons/preview/black/circle-outline-xxl.png");
+ background-size: 100%;
+}
+
+/*body {
+  text-align: center;
+}*/

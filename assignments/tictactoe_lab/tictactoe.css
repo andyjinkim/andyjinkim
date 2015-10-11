@@ -1,0 +1,73 @@
+body {
+ text-align: center;
+ font-size: 70px;
+ background-image: url("http://www.photosinbox.com/download/3d-tic-tac-toe.jpg");
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: 100%;
+}
+
+h1 {
+  margin-bottom: 0;
+  margin-top: 0px;
+  font-family: 'Amatic SC', cursive;
+}
+
+.box {
+ border: black 2px solid;
+ width: 150px;
+ height: 150px;
+ display: inline-block;
+ vertical-align: top;
+ margin-bottom: 14px;
+ font-family: 'Amatic SC', cursive;
+ text-align: center;
+ font-size: 40px;
+}
+
+#line3 {
+  margin-left: -19px;
+}
+
+.cross {
+ width: 150px;
+ height: 150px;
+ display: inline-block;
+ border: black 2px solid;
+ text-align: center;
+ vertical-align: text-top;
+ font-size: 130px;
+ margin-bottom: 14px;
+ font-family: 'Indie Flower', cursive;
+}
+
+.circle {
+ width: 150px;
+ height: 150px;
+ display: inline-block;
+ border: black 2px solid;
+ text-align: center;
+ vertical-align: text-top;
+ font-size: 130px;
+ margin-bottom: 14px;
+ font-family: 'Indie Flower', cursive;
+}
+
+button {
+  width: 400px;
+  height: 60px;
+  font-size: 40px;
+  font-family: 'Ubuntu', sans-serif;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.xWinnerTally {
+  height: 760px;
+  width: 300px;
+}
+
+.oWinnerTally {
+  height: 760px;
+  width: 300px;
+}

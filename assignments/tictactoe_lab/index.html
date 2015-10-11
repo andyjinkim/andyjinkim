@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Tic Tac Toe</title>
+   <link rel="stylesheet" href="tictactoe.css">
+   <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+ </head>
+
+ <body>
+   <h1>Tic-Tac-Toe</h1>
+
+   <!-- Check onmouseout & onmouseover in css -->
+
+   <div class="box"></div>
+   <div class="box"></div>
+   <div class="box"></div>
+   <br>
+   <div class="box"></div>
+   <div class="box"></div>
+   <div class="box"></div>
+   <br>
+    <div id="line3">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+   <div>
+   <button id="button" onclick = myFunction()>Clear board</button>
+   </div>
+
+   <script type="text/javascript">
+
+      var counter = 0;
+      var boxes = document.querySelectorAll('.box');
+
+	    function setSquare(el){
+        console.log('testing')
+        el.addEventListener('click', function(){
+        console.log('counter', counter);
+        if (el.className === "box") {
+          if (counter % 2 === 0) {
+            el.className = "cross";
+			      el.innerHTML = "X"
+          } else {
+            el.className = "circle";
+			      el.innerHTML = "O"
+          }
+          console.log(el);
+          counter = counter + 1;
+          if (boxes[0].className === "cross" && boxes[1].className === "cross" && boxes[2].className === "cross" ||
+              boxes[3].className === "cross" && boxes[4].className === "cross" && boxes[5].className === "cross" ||
+              boxes[6].className === "cross" && boxes[7].className === "cross" && boxes[8].className === "cross" ||
+              boxes[0].className === "cross" && boxes[3].className === "cross" && boxes[6].className === "cross" ||
+              boxes[1].className === "cross" && boxes[4].className === "cross" && boxes[7].className === "cross" ||
+              boxes[2].className === "cross" && boxes[5].className === "cross" && boxes[8].className === "cross" ||
+              boxes[0].className === "cross" && boxes[4].className === "cross" && boxes[8].className === "cross" ||
+              boxes[2].className === "cross" && boxes[4].className === "cross" && boxes[6].className === "cross"
+        ){
+              alert('Player X Wins!');
+              // boxes.forEach(function(){
+              //   innerHTML = " ";
+              // })
+              // for (var i=0; i < 10; i++){
+              //   el.innerHTML = " ";
+              // }
+            }
+          if (boxes[0].className === "circle" && boxes[1].className === "circle" && boxes[2].className === "circle" ||
+              boxes[3].className === "circle" && boxes[4].className === "circle" && boxes[5].className === "circle" ||
+              boxes[6].className === "circle" && boxes[7].className === "circle" && boxes[8].className === "circle" ||
+              boxes[0].className === "circle" && boxes[3].className === "circle" && boxes[6].className === "circle" ||
+              boxes[1].className === "circle" && boxes[4].className === "circle" && boxes[7].className === "circle" ||
+              boxes[2].className === "circle" && boxes[5].className === "circle" && boxes[8].className === "circle" ||
+              boxes[0].className === "circle" && boxes[4].className === "circle" && boxes[8].className === "circle" ||
+              boxes[2].className === "circle" && boxes[4].className === "circle" && boxes[6].className === "circle"
+        ){
+              alert('Player O Wins!');
+            }
+        }})
+      }
+      for (var i = 0; i < boxes.length; i++) {
+          setSquare(boxes[i]);
+      }
+
+      myFunction = function(){
+        if (counter < 10) {
+          console.log('nine');
+          document.location.href = '';
+        }
+        console.log('win');
+      }
+
+      // breakFunction = function(){
+      //   for (var i = 0; i < boxes.length; i++) {
+      //     if (boxes.className === "cross" || boxes.className === "circle"){
+      //       boxes.innerHTML = " ";
+      //     }
+      //   }
+      // }
+
+      // document.getElementById("myBtn").addEventListener("click", function(){
+      //   for (var i = 0; i < boxes.length; i++) {
+      //     if (boxes.className === "cross") {
+      //       boxes.className = "box";
+      //     else (boxes.className === "circle") {
+      //       boxes.className = "box";
+      //     }
+      //     }
+      //   }
+      // });
+
+   </script>
+ </body>
+</html>

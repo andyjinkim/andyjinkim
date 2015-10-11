@@ -1,28 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style media="screen">
-    .my-box {
-    border: black 2px solid;
-      width: 100px;
-      height: 100px;
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    img {
-      width: 100px;
-    }
-
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="utf-8">
     <title>Whack-A-Mole</title>
   </head>
   <body>
     <h1 id=title>Whack-A-Mole</h1>
-    <div class="my-box">
-      <!-- <img src="pic.jpg" /> -->
+    <div>
+      <p id="elapsed">Elapsed Time: </p>
     </div>
+    <div id="game-time"></div>
+    <div class="my-box"></div>
     <div class="my-box"></div>
     <div class="my-box"></div>
   <br>
@@ -36,34 +26,23 @@
     <div class="my-box"></div>
 
     <script type="text/javascript">
-      var boxes = document.querySelectorAll('.my-box');
-      var currentBox = null;
-      var mole = '<img src="http://bit.ly/1jOaf8X">'
-      var hammer = '<img src="http://bit.ly/1MeCb0G">'
-      var score = 0;
-      console.log(boxes);
+      var game = {score: 0, elapsedTime: 0};
+      var boxes = $('.my-box');
+      var scoreboard = $('#elapsed')
 
       setInterval(function(){
-        if(currentBox !== null){
-          boxes[currentBox].innerHTML = null;
-        }
-        currentBox = Math.floor((Math.random()) * 9);
-        boxes[currentBox].innerHTML = mole}, 1000);
+        scoreboard.text("Elapsed Time: " + game.elapsedTime ++ + " seconds");
+        game.currentBox = Math.floor((Math.random()) * 9);
+        $(boxes[game.currentBox]).html("");
 
+        game.currentBox = Math.floor((Math.random()) * 9);
+        $(boxes[game.currentBox]).html("<p>mole</p>");
+      }, 1000);
 
-        // ask why the clicks are occurring on every box even though if this.innerHTML !== ""
-      for (i=0; i<boxes.length; i++){
-        boxes[i].addEventListener('click', function(){
-          if (this.innerHTML !== ""){
-            this.innerHTML = hammer;
-          }
-          console.log (this.innerHTML = hammer);
-          if (this.innerHTML !== ""){
-            score = score + 1;
-          }
-          console.log(score);
-        });
-      }
+      console.log(boxes);
+      boxes.on('click', function(){
+        $(this).text('boom');
+      });
     </script>
   </body>
 </html>

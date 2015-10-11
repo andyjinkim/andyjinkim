@@ -1,0 +1,218 @@
+/*
+Project Name: Blank Template
+Client: Your Client
+Author: Your Name
+Developer @GA in NYC
+*/
+
+
+/******************************************
+/* SETUP
+/*******************************************/
+
+/* Box Model Hack */
+* {
+     -moz-box-sizing: border-box; /* Firexfox */
+     -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+     box-sizing: border-box; /* IE */
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.alignright {
+  float: right;
+  padding: 0 0 10px 10px; /* note the padding around a right floated image */
+}
+
+.alignleft {
+  float: left;
+  padding: 0 10px 10px 0; /* note the padding around a left floated image */
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+header {
+  background: url(../images/header_bg.jpg) no-repeat center top rgb(134,141,157);
+   background-size: cover; height: 500px;
+}
+
+#relaxrFooter {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  color: yellow;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  letter-spacing: 1.3px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#cover {
+  position: relative;
+  left: 90px;
+  top: 30px;
+  font-size: 24px;
+  font-weight: 900;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#copyrite {
+  font-size: 9px;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+  padding-bottom: 30px;
+}
+
+#text {
+  text-align: center;
+  position: relative;
+  top: 80px;
+  margin-bottom: 60px;
+  font-weight: 400;
+  font-size: 24px;
+  color: white;
+  letter-spacing: 1.3px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#benefits {
+  text-align: left;
+  padding-left: 50px;
+  font-size: 20px;
+  font-weight:400;
+  padding-top: 15px;
+}
+
+#list {
+  text-align: left;
+  padding-left: 85px;
+  font-size: 13px;
+  font-weight: 100;
+}
+
+#assistant {
+  font-size: 13px;
+  font-weight: 300;
+  padding-left: 55px;
+}
+
+body {
+    color: #000;
+    font-size: 12px;
+    line-height: 1.4;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#getIt {
+  background-color: yellow;
+  border-color: yellow;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 800;
+  width: 160px;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 18%;
+}
+
+#page {
+  background: url(../images/testimonial_bg.jpg) no-repeat center top rgb(134,141,157);
+   background-size: cover;
+   height: 275px;
+   position: relative;
+ }
+
+ #quote {
+  font-size: 18px;
+  font-weight: 100;
+  text-align: center;
+  color: white;
+  font-style: italic;
+}
+
+#longQuote {
+  position: relative;
+  bottom: 30px;
+}
+
+#name {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+#signUp {
+  background-color: yellow;
+  height: 80px;
+  position: relative;
+  text-align: center;
+}
+
+#signUpButton {
+  color: white;
+  background-color: #033048;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 800;
+  width: 140px;
+  height: 35px;
+  margin-top: 22px;
+}
+
+footer {
+  background-color: black;
+}
+
+#socialMedia {
+  text-align: center;
+}
+
+#twitter {
+  margin-right: 25px;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+/* Center the container */
+#container {
+  width: 100%;
+  margin: auto;
+  height: 500px;
+}
+
+header {
+
+}
+
+footer {
+
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+ul {
+  list-style-type: circle;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title></title>
+  </head>
+  <body>
+    <div type=input id="output">Output goes here</div>
+    <div class=allButtons>
+      <button class="numbers">1</button>
+      <button class="numbers">2</button>
+      <button class="numbers">3</button>
+      <button class="numbers">4</button>
+    </br>
+      <button class="numbers">5</button>
+      <button class="numbers">6</button>
+      <button class="numbers">7</button>
+      <button class="numbers">8</button>
+    </br>
+      <button class="numbers">9</button>
+      <button class="numbers">0</button>
+      <button class="calcs">+</button>
+      <button class="calcs">-</button>
+    </br>
+      <button class="calcs">*</button>
+      <button class="calcs">/</button>
+      <button class="eval">=</button>
+      <button class="clear">AC</button>
+    </div>
+  <script type="text/javascript">
+    var numbers = document.getElementsByClassName("numbers");
+    var calcs = document.getElementsByClassName("calcs");
+    var typingArray = [];
+    var ele = document.getElementById("output");
+    var stringOutput;
+    var calculateArray;
+    var evaluate = document.getElementsByClassName("eval");
+
+    // live >
+    for (i=0; i<numbers.length; i++){
+      numbers[i].addEventListener("click", displayOutput);
+    }
+
+    for (i=0; i<calcs.length; i++){
+      calcs[i].addEventListener("click", evaluateOutput);
+    }
+
+    function displayOutput(){
+      typingArray.push(this.innerText);
+      stringOutput = typingArray.join('');
+      ele.innerText=stringOutput;
+    }
+
+    // live <
+
+
+
+      evaluate[0].addEventListener("click", evaluateOutput);
+
+
+    function evaluateOutput(){
+      ele.innerHTML=eval(stringOutput);
+    }
+
+    function pushOutput() {
+      calculateArray = stringOutput.push(this.innerText);
+    }
+
+  </script>
+  </body>
+</html>
