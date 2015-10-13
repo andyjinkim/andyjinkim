@@ -10,8 +10,12 @@ $boxes.on('click', function(){
 
         var row = parseInt($(this).data('row'));
         var column = parseInt($(this).data('col'));
+        var diagonal = parseInt($(this).data('diag'))
+        var otherDiagonal = parseInt($(this).data('otherDiag'))
         var $entireRow = $('.box[data-row="' + row + '"]')
         var $entireColumn = $( ".box[data-col='" + column + "']" )
+        var $entireDiagonal = $(".box[data-diag='" + diagonal + "']")
+        var $otherDiagonal = $(".box[data-diag='" + otherDiagonal + "']")
 
         function checkBoxes() {
           if (counter % 2 === 0) {
@@ -24,8 +28,14 @@ $boxes.on('click', function(){
             $entireColumn.each(function() {
               if ($(this).not(document.getElementsByClassName('black'))) {
                 $(this).removeClass('white').addClass('black');
-              }
-            })
+              };
+            });
+            $entireDiagonal.each(function() {
+              $(this).removeClass('white').addClass('black');
+            });
+            $otherDiagonal.each(function() {
+              $(this).removeClass('white').addClass('black');
+            });
         }
         else if (counter % 2 === 1) {
           (this).className = "box white";
@@ -35,6 +45,16 @@ $boxes.on('click', function(){
               };
             });
             $entireColumn.each(function() {
+              if ($(this).not(document.getElementsByClassName('white'))) {
+                $(this).removeClass('black').addClass('white');
+              };
+            });
+            $entireDiagonal.each(function() {
+              if ($(this).not(document.getElementsByClassName('white'))) {
+                $(this).removeClass('black').addClass('white');
+              };
+            });
+            $otherDiagonal.each(function() {
               if ($(this).not(document.getElementsByClassName('white'))) {
                 $(this).removeClass('black').addClass('white');
               }
@@ -62,9 +82,12 @@ $boxes.on('click', function(){
 
     console.log('Row: ', row);
     console.log('Column: ', column);
+    console.log('Diagonal: ', diagonal);
     console.log('All divs in same row: ', $('.box[data-row="' + row + '"]'))
     //console.log('All divs in same row: ', $('.box.row'+row));
     console.log('All divs in same column: ', $( ".box[data-col='" + column + "']" ))
+    console.log('All divs in the positive diagonal: ', $(".box[data-diag='" + diagonal + "']"))
+    console.log('All divs in the negative diagonal: ', $(".box[data-otherDiag='" + otherDiagonal + "']"))
     // console.log($('.box[data-row="' + (row - 1) + '"][data-col="' + (column + 1) + '"]'))
 
     // checkBoxes();
