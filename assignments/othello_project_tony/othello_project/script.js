@@ -42,17 +42,82 @@ function isEmpty($clickedBox) {
   }
 }
 
+function getElements($start, direction, color){
+  var row = parseInt($start.data('row'))
+  var column = parseInt(start.data('column'))
+  var elements =[];
+
+  switch (direction){
+    case 'up':
+      row--;
+      var id = row * size + column - 1;
+      while (row>=0 && !(isEmpty($('#'+id)))){
+        elements.push($('#'+id));
+        if ($('#'+id).hasClass(color)) {
+          break;
+        }
+        row--;
+      }
+      break;
+    case 'up-right':
+      break;
+    case 'right':
+      break;
+    case 'down-right':
+      break;
+    case 'down':
+      break;
+    case 'down-left':
+      break;
+    case 'left':
+      break;
+    case 'up-left':
+      break;
+    default; //if a case doesn't match any of the cases, then break.
+      break;
+  }
+
+  return validMove;
+}
+
+function checkLine(elements){
+
+}
+
+function walk($start, callback) { //ask bensen about this callback later
+  if (counter%2 === 0) {
+    $start.addClass("black");
+  }
+  else {
+    $start.addClass("white");
+  }
+  var color = $start.hasClass('white') ? 'white' : 'black'; //shortened if/else statement
+  var directions = ['up']
+
+  var moveResults = [];
+  var validMove = 0;
+  for (var i = 0; i < directions.length; i++) {
+    //loop through the directions
+    var elements = getElements($start, directions[i], color);
+    validMove += checkLine(elements);
+  }
+
+  return validMove;
+}
+
 $boxes.click(function() {
   var $that = $(this);
 
   if (isEmpty($(this))) {
-console.log('clickable');
-    walk ($(this), function(error) {
-      if (error) {
-        $that.attr('class', 'box') // attr(which attr you'd like to change, what you would like to change it to)
-        console.log(err.message); // change this to an alert
-      }
-    })
+    console.log('clickable');
+    var validMove = walk($(this)); //walk() returns true/false
+
+    if (validMove){
+      counter++;
+    } else {
+      $that.attr('class', 'box') // attr(which attr you'd like to change, what you would like to change it to)
+      console.log('invalid move'); // change this to an alert
+    }
   }
 })
 
