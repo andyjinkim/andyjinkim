@@ -3,79 +3,87 @@
   <head>
     <link rel='stylesheet' href='styles.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
     <title>Othello!</title>
   </head>
-  <body>
-    <header>Othello!</header>
+  <body id="page">
     <div id="container">
-      <div class="box" data-col="0" data-row="0" data-diag="0" data-otherDiag="3"></div>
-      <div class="box" data-col="1" data-row="0" data-diag="1" data-otherDiag="2"></div>
-      <div class="box" data-col="2" data-row="0" data-diag="2" data-otherDiag="1"></div>
-      <div class="box" data-col="3" data-row="0" data-diag="3" data-otherDiag="0"></div>
+      <h1 id="title">Othello!</h1>
+      <div id="gameBoard">
+        <div class="box" data-col="0" data-row="0" data-diag="0" data-otherdiag="7"></div>
+        <div class="box" data-col="1" data-row="0" data-diag="1" data-otherdiag="6"></div>
+        <div class="box" data-col="2" data-row="0" data-diag="2" data-otherdiag="5"></div>
+        <div class="box" data-col="3" data-row="0" data-diag="3" data-otherdiag="4"></div>
+        <div class="box" data-col="4" data-row="0" data-diag="4" data-otherdiag="3"></div>
+        <div class="box" data-col="5" data-row="0" data-diag="5" data-otherdiag="2"></div>
+        <div class="box" data-col="6" data-row="0" data-diag="6" data-otherdiag="1"></div>
+        <div class="box" data-col="7" data-row="0" data-diag="7" data-otherdiag="0"></div>
+        <br>
+        <div class="box"  data-col="0" data-row="1" data-diag="1" data-otherdiag="8"></div>
+        <div class="box"  data-col="1" data-row="1" data-diag="2" data-otherdiag="7"></div>
+        <div class="box"  data-col="2" data-row="1" data-diag="3" data-otherdiag="6"></div>
+        <div class="box"  data-col="3" data-row="1" data-diag="4" data-otherdiag="5"></div>
+        <div class="box"  data-col="4" data-row="1" data-diag="5" data-otherdiag="4"></div>
+        <div class="box"  data-col="5" data-row="1" data-diag="6" data-otherdiag="3"></div>
+        <div class="box"  data-col="6" data-row="1" data-diag="7" data-otherdiag="2"></div>
+        <div class="box"  data-col="7" data-row="1" data-diag="8" data-otherdiag="1"></div>
+        <br>
+        <div class="box" data-col="0" data-row="2" data-diag="2" data-otherdiag="9"></div>
+        <div class="box" data-col="1" data-row="2" data-diag="3" data-otherdiag="8"></div>
+        <div class="box" data-col="2" data-row="2" data-diag="4" data-otherdiag="7"></div>
+        <div class="box" data-col="3" data-row="2" data-diag="5" data-otherdiag="6"></div>
+        <div class="box" data-col="4" data-row="2" data-diag="6" data-otherdiag="5"></div>
+        <div class="box" data-col="5" data-row="2" data-diag="7" data-otherdiag="4"></div>
+        <div class="box" data-col="6" data-row="2" data-diag="8" data-otherdiag="3"></div>
+        <div class="box" data-col="7" data-row="2" data-diag="9" data-otherdiag="2"></div>
+        <br>
+        <div class="box" data-col="0" data-row="3" data-diag="3" data-otherdiag="10"></div>
+        <div class="box" data-col="1" data-row="3" data-diag="4" data-otherdiag="9"></div>
+        <div class="box" data-col="2" data-row="3" data-diag="5" data-otherdiag="8"></div>
+        <div class="box white" data-col="3" data-row="3" data-diag="6" data-otherdiag="7"></div>
+        <div class="box black" data-col="4" data-row="3" data-diag="7" data-otherdiag="6"></div>
+        <div class="box" data-col="5" data-row="3" data-diag="8" data-otherdiag="5"></div>
+        <div class="box" data-col="6" data-row="3" data-diag="9" data-otherdiag="4"></div>
+        <div class="box" data-col="7" data-row="3" data-diag="10" data-otherdiag="3"></div>
+        <br>
+        <div class="box" data-col="0" data-row="4" data-diag="4" data-otherdiag="11"></div>
+        <div class="box" data-col="1" data-row="4" data-diag="5" data-otherdiag="10"></div>
+        <div class="box" data-col="2" data-row="4" data-diag="6" data-otherdiag="9"></div>
+        <div class="box black" data-col="3" data-row="4" data-diag="7" data-otherdiag="8"></div>
+        <div class="box white" data-col="4" data-row="4" data-diag="8" data-otherdiag="7"></div>
+        <div class="box" data-col="5" data-row="4" data-diag="9" data-otherdiag="6"></div>
+        <div class="box" data-col="6" data-row="4" data-diag="10" data-otherdiag="5"></div>
+        <div class="box" data-col="7" data-row="4" data-diag="11" data-otherdiag="4"></div>
+        <br>
+        <div class="box" data-col="0" data-row="5" data-diag="5" data-otherdiag="12"></div>
+        <div class="box" data-col="1" data-row="5" data-diag="6" data-otherdiag="11"></div>
+        <div class="box" data-col="2" data-row="5" data-diag="7" data-otherdiag="10"></div>
+        <div class="box" data-col="3" data-row="5" data-diag="8" data-otherdiag="9"></div>
+        <div class="box" data-col="4" data-row="5" data-diag="9" data-otherdiag="8"></div>
+        <div class="box" data-col="5" data-row="5" data-diag="10" data-otherdiag="7"></div>
+        <div class="box" data-col="6" data-row="5" data-diag="11" data-otherdiag="6"></div>
+        <div class="box" data-col="7" data-row="5" data-diag="12" data-otherdiag="5"></div>
+        <br>
+        <div class="box" data-col="0" data-row="6" data-diag="6" data-otherdiag="13"></div>
+        <div class="box" data-col="1" data-row="6" data-diag="7" data-otherdiag="12"></div>
+        <div class="box" data-col="2" data-row="6" data-diag="8" data-otherdiag="11"></div>
+        <div class="box" data-col="3" data-row="6" data-diag="9" data-otherdiag="10"></div>
+        <div class="box" data-col="4" data-row="6" data-diag="10" data-otherdiag="9"></div>
+        <div class="box" data-col="5" data-row="6" data-diag="11" data-otherdiag="8"></div>
+        <div class="box" data-col="6" data-row="6" data-diag="12" data-otherdiag="7"></div>
+        <div class="box" data-col="7" data-row="6" data-diag="13" data-otherdiag="6"></div>
+        <br>
+        <div class="box" data-col="0" data-row="7" data-diag="7" data-otherdiag="14"></div>
+        <div class="box" data-col="1" data-row="7" data-diag="8" data-otherdiag="13"></div>
+        <div class="box" data-col="2" data-row="7" data-diag="9" data-otherdiag="12"></div>
+        <div class="box" data-col="3" data-row="7" data-diag="10" data-otherdiag="11"></div>
+        <div class="box" data-col="4" data-row="7" data-diag="11" data-otherdiag="10"></div>
+        <div class="box" data-col="5" data-row="7" data-diag="12" data-otherdiag="9"></div>
+        <div class="box" data-col="6" data-row="7" data-diag="13" data-otherdiag="8"></div>
+        <div class="box" data-col="7" data-row="7" data-diag="14" data-otherdiag="7"></div>
       <br>
-      <div class="box"  data-col="0" data-row="1" data-diag="1" data-otherDiag="4"></div>
-      <div class="box black"  data-col="1" data-row="1" data-diag="2" data-otherDiag="3"></div>
-      <div class="box white"  data-col="2" data-row="1" data-diag="3" data-otherDiag="2"></div>
-      <div class="box"  data-col="3" data-row="1" data-diag="4" data-otherDiag="1"></div>
-      <br>
-      <div class="box" data-col="0" data-row="2" data-diag="2" data-otherDiag="5"></div>
-      <div class="box white" data-col="1" data-row="2" data-diag="3" data-otherDiag="4"></div>
-      <div class="box black" data-col="2" data-row="2" data-diag="4" data-otherDiag="3"></div>
-      <div class="box" data-col="3" data-row="2" data-diag="5" data-otherDiag="2"></div>
-      <br>
-      <div class="box" data-col="0" data-row="3" data-diag="3" data-otherDiag="6"></div>
-      <div class="box" data-col="1" data-row="3" data-diag="4" data-otherDiag="5"></div>
-      <div class="box" data-col="2" data-row="3" data-diag="5" data-otherDiag="4"></div>
-      <div class="box" data-col="3" data-row="3" data-diag="6" data-otherDiag="3"></div>
-      <!-- <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div> -->
+    </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src='script.js'></script>
