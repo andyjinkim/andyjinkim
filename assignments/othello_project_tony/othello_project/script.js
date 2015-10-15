@@ -10,6 +10,7 @@ var size = 8;
 var $scoreboard = $('.scoreboard')
 var oneCounter = 0;
 var minusCounter = 0;
+var $playerTurn = $('#playerTurn')
 
 var arr = [
   ["0","0","0","0","0","0","0","0"],
@@ -113,7 +114,7 @@ console.log('row:', row, 'column:', column);
     case 'left':
       column--;
       id = row * size + column;
-      while (row>=0 && !(isEmpty($('#'+id)))){
+      while (column>=0 && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
           break;
@@ -184,6 +185,7 @@ $boxes.click(function() {
     if (validMove > 0){
       counter++;
       printScore();
+      whoseTurn();
     } else {
       $that.attr('class', 'box') // attr(which attr you'd like to change, what you would like to change it to)
       console.log('invalid move'); // change this to an alert
@@ -195,3 +197,14 @@ $boxes.click(function() {
 function printScore() {
   $scoreboard.text('Number of white pieces: ' + $('.white').length + ' Number of black pieces: ' + $('.black').length)};
 printScore();
+
+// live updates whose turn it is
+function whoseTurn() {
+  if (counter%2 === 0) {
+    $playerTurn.text('Place a black piece');
+    $playerTurn.removeClass("textWhite").addClass("textBlack");
+} else if (counter%2 === 1) {
+    $playerTurn.text('Place a white piece');
+    $playerTurn.removeClass("textBlack").addClass("textWhite");
+}};
+whoseTurn();

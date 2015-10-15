@@ -5,8 +5,24 @@
   letter-spacing: 2px;
 }
 
+.textBlack {
+  color: black;
+}
+
+.textWhite {
+  color: white;
+}
+
 html {
   height: 0;
+}
+
+#playerTurn {
+  height: 20px;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 37px;
 }
 
 .scoreboard {
@@ -15,7 +31,7 @@ html {
   border: black 2px solid;
   margin: 0 auto;
   font-size: 30px;
-  color: white;
+  color: black;
 }
 
 #gameboard {
