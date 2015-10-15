@@ -43,84 +43,125 @@ function isEmpty($clickedBox) {
 }
 
 function getElements($start, direction, color){
-  var row = parseInt($start.data('row'))
-  var column = parseInt(start.data('column'))
+  var row = $start.data('row');
+  var column = $start.data('column');
+  var id;
   var elements =[];
-
+console.log('row:', row, 'column:', column);
   switch (direction){
     case 'up':
       row--;
-      var id = row * size + column - 1;
+      id = row * size + column;
       while (row>=0 && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
-          break;
+          break; //breaks while loop
         }
+        row--;
+        id = row * size + column;
       }
+      break; //break case
     case 'up-right':
-      row--, column++;
+      row--; column++;
+      id = row * size + column;
       while (row>=0 && column<8 && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
           break;
         }
+        row --; column++;
+        id = row * size + column;
       }
+      break;
     case 'right':
-      row++;
-      while (row<8 && !(isEmpty($('#'+id)))){
+      column++;
+      id = row * size + column;
+      while (column<8 && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
           break;
         }
+        column++;
+        id = row * size + column;
       }
+      break;
     case 'down-right':
-      row++, column++;
+      row++; column++;
+      id = row * size + column;
       while (row<8 && column<8  && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
           break;
         }
+        row++; column++;
+        id = row * size + column;
       }
+      break;
     case 'down':
       row++;
+      id = row * size + column;
       while (row<8 && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
           break;
         }
+        row++;
+        id = row * size + column;
       }
+      break;
     case 'down-left':
-      row++, column--;
+      row++; column--;
+      id = row * size + column;
       while (row<8 && column>=0 && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
           break;
         }
+        row++; column--;
+        id = row * size + column;
       }
+      break;
     case 'left':
-      row--;
+      column--;
+      id = row * size + column;
       while (row>=0 && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
           break;
         }
+        column--;
+        id = row * size + column;
       }
+      break;
     case 'up-left':
-      row--, column--;
+      row--; column--;
+      id = row * size + column;
       while (row>=0 && column>=0 && !(isEmpty($('#'+id)))){
         elements.push($('#'+id));
         if ($('#'+id).hasClass(color)) {
           break;
         }
+        row--; column--;
+        id = row * size + column;
       }
     default:
       break;//if a case doesn't match any of the cases, then break.
   }
-  return validMove;
+  console.log('elements:', elements);
+  return elements;
 }
 
-function checkLine(elements){
-
+function checkLine(elements, color){
+  if (elements.length <2){ //either there is an empty space or the immediate next is the same color
+    return 0;
+  } else if (elements[elements.length-1].hasClass(color)){
+      elements.forEach(function($el){
+        $el.attr('class', 'box').addClass(color);
+      })
+      return 1;
+  } else {
+    return 0;
+  }
 }
 
 function walk($start, callback) { //ask bensen about this callback later
@@ -131,14 +172,14 @@ function walk($start, callback) { //ask bensen about this callback later
     $start.addClass("white");
   }
   var color = $start.hasClass('white') ? 'white' : 'black'; //shortened if/else statement
-  var directions = ['up']
+  var directions = ['up', 'up-right', 'right', 'down-right', 'down', 'down-left', 'left', 'up-left']
 
-  var moveResults = [];
+  //var moveResults = [];
   var validMove = 0;
   for (var i = 0; i < directions.length; i++) {
     //loop through the directions
     var elements = getElements($start, directions[i], color);
-    validMove += checkLine(elements);
+    validMove += checkLine(elements, color);
   }
 
   return validMove;
@@ -151,7 +192,7 @@ $boxes.click(function() {
     console.log('clickable');
     var validMove = walk($(this)); //walk() returns true/false
 
-    if (validMove){
+    if (validMove > 0){
       counter++;
     } else {
       $that.attr('class', 'box') // attr(which attr you'd like to change, what you would like to change it to)
@@ -159,28 +200,3 @@ $boxes.click(function() {
     }
   }
 })
-
-// $boxes.on('click', function(){
-//   var row = $(this).data("row");
-//   var column = $(this).data("column");
-//   console.log(row, column);
-//   var player = (counter%2===0) ? white : black;
-
-
-  // if (counter % 2 === 0) {
-  //   arr[row][column] = white;
-  // } else {
-  //   arr[row][column] = black;
-  // }
-  // arr[row][column] = player
-  // var piecesChanged = numFlips(row, column, player)
-//console.log(arr);
-
-// console.log('flipped: ', piecesChanged);
-//   console.log(arr[row][column]);
-//   counter++;
-// });
-
-/*
-Crip walking the board
-*/
