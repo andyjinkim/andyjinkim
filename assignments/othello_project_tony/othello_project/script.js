@@ -7,21 +7,26 @@ var empty = 0;
 var white = -1;
 var black = 1;
 var size = 8;
-var $scoreboard = $('.scoreboard')
+var $scoreboard = $('.scoreboard');
 var oneCounter = 0;
 var minusCounter = 0;
-var $playerTurn = $('#playerTurn')
+var $playerTurn = $('#playerTurn');
+var playerBlack = prompt("What's your name, player one?") || "Black Player";
+var playerWhite = prompt("What's your name, player two?") || "White Player";
 
-var arr = [
-  ["0","0","0","0","0","0","0","0"],
-  ["0","0","0","0","0","0","0","0"],
-  ["0","0","0","0","0","0","0","0"],
-  ["0","0","0",-1,1,"0","0","0"],
-  ["0","0","0",1,-1,"0","0","0",],
-  ["0","0","0","0","0","0","0","0"],
-  ["0","0","0","0","0","0","0","0"],
-  ["0","0","0","0","0","0","0","0"]
-]
+playerBlack;
+playerWhite;
+
+// var arr = [
+//   ["0","0","0","0","0","0","0","0"],
+//   ["0","0","0","0","0","0","0","0"],
+//   ["0","0","0","0","0","0","0","0"],
+//   ["0","0","0",-1,1,"0","0","0"],
+//   ["0","0","0",1,-1,"0","0","0",],
+//   ["0","0","0","0","0","0","0","0"],
+//   ["0","0","0","0","0","0","0","0"],
+//   ["0","0","0","0","0","0","0","0"]
+// ]
 
 function isEmpty($clickedBox) {
   if ($clickedBox.hasClass("black") || $clickedBox.hasClass("white")) {
@@ -37,7 +42,7 @@ function getElements($start, direction, color){
   var column = $start.data('column');
   var id;
   var elements =[];
-console.log('row:', row, 'column:', column);
+//console.log('row:', row, 'column:', column);
   switch (direction){
     case 'up':
       row--;
@@ -137,10 +142,11 @@ console.log('row:', row, 'column:', column);
     default:
       break;//if a case doesn't match any of the cases, then break.
   }
-  console.log('elements:', elements);
+  //console.log('elements:', elements);
   return elements;
 }
 
+// Check line and flip pieces
 function checkLine(elements, color){
   if (elements.length <2){ //either there is an empty space or the immediate next is the same color
     return 0;
@@ -154,7 +160,19 @@ function checkLine(elements, color){
   }
 }
 
-function walk($start, callback) { //ask bensen about this callback later
+//Check line only to see if pieces can be flipped, returns true/false
+function inspectLine(elements, color){
+  if (elements.length<2){
+    return 0;
+  } else if (elements[elements.length-1].hasClass(color)){
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+
+function walk($start) { //ask bensen about this callback later
   if (counter%2 === 0) {
     $start.addClass("black");
   }
@@ -180,7 +198,7 @@ $boxes.click(function() {
 
   if (isEmpty($(this))) {
     var validMove = walk($(this)); //walk() returns true/false
-    console.log(this)
+    //console.log(this);
 
     if (validMove > 0){
       counter++;
@@ -191,6 +209,7 @@ $boxes.click(function() {
       console.log('invalid move'); // change this to an alert
     }
   }
+  checkWin();
 })
 
 // should have used jquery $(.black).length && $(.white).length
@@ -198,13 +217,65 @@ function printScore() {
   $scoreboard.text('Number of white pieces: ' + $('.white').length + ' Number of black pieces: ' + $('.black').length)};
 printScore();
 
-// live updates whose turn it is
+// live updates whose turn it is & changes font color
 function whoseTurn() {
   if (counter%2 === 0) {
-    $playerTurn.text('Place a black piece');
+    $playerTurn.text('Place a black piece, ' + playerBlack + '!');
     $playerTurn.removeClass("textWhite").addClass("textBlack");
-} else if (counter%2 === 1) {
-    $playerTurn.text('Place a white piece');
+
+  } else if (counter%2 === 1) {
+    $playerTurn.text('Place a white piece, ' + playerWhite + '!');
     $playerTurn.removeClass("textBlack").addClass("textWhite");
-}};
+
+  }
+};
+
 whoseTurn();
+
+function clearBoard() {
+  $(".box").removeClass('white').removeClass('black');
+  $("#27,#36").addClass('black');
+  $("#28,#35").addClass('white');
+  printScore();
+  playerBlack;
+  playerWhite;
+}
+
+function checkWin(){
+  // console.log('checkwin firing')
+  var hasValidMove = false; //default to there being no valid moves
+  var color = 'black';
+  if (counter%2 !== 0) {
+    color = "white";
+  }
+
+  //Loop through the board, check each empty square to see if there is a valid move
+  for (i=0; i<=63; i++){
+    if (isEmpty($('#' + i))){
+
+      var directions = ['up', 'up-right', 'right', 'down-right', 'down', 'down-left', 'left', 'up-left']
+      var validMove = 0;
+      for (var j = 0; j < directions.length; j++) {
+        //loop through the directions
+        var elements = getElements($('#'+i), directions[j], color);
+        validMove += inspectLine(elements, color);
+        //console.log("===========",validMove)
+      }
+      if (validMove>0){
+        //if we detect a valid move, break loop, game can continue
+        hasValidMove = true;
+        console.log('hasValidMove, id: ', i);
+        break;
+        return;//stops function
+      }
+    }
+  }
+
+  if(!hasValidMove) {
+    //Once we finish looping the board, if validMove is still false, game end
+    document.getElementById('playerTurn').innerHTML = 'GAME OVER. See score below!';
+    document.querySelector('.box').style.color = "white";
+    document.querySelector('.box').style.fontSize = "15px";
+    console.log("No more valid moves, press OK to view final score!");
+  }
+};

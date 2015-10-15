@@ -3,6 +3,7 @@
   font-family: 'Pacifico', cursive;
   font-size: 100px;
   letter-spacing: 2px;
+  width: 100%;
 }
 
 .textBlack {
@@ -27,8 +28,7 @@ html {
 
 .scoreboard {
   width: 400px;
-  height: 150px;
-  border: black 2px solid;
+  height: 95px;
   margin: 0 auto;
   font-size: 30px;
   color: black;
@@ -36,6 +36,12 @@ html {
 
 #gameboard {
   width: 400px;
+}
+
+#clearBoard {
+  margin-top: 10px;
+  width: 370px;
+  height: 30px;
 }
 
 body {
