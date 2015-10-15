@@ -214,18 +214,18 @@ $boxes.click(function() {
 
 // should have used jquery $(.black).length && $(.white).length
 function printScore() {
-  $scoreboard.text('Number of white pieces: ' + $('.white').length + ' Number of black pieces: ' + $('.black').length)};
+  $scoreboard.text(playerBlack + ": " + $('.black').length + " "+ playerWhite + ": " + $('.white').length)};
 printScore();
 
 // live updates whose turn it is & changes font color
 function whoseTurn() {
   if (counter%2 === 0) {
     $playerTurn.text('Place a black piece, ' + playerBlack + '!');
-    $playerTurn.removeClass("textWhite").addClass("textBlack");
+    $playerTurn.removeClass("textWhite").removeClass("textRed").addClass("textBlack");
 
   } else if (counter%2 === 1) {
     $playerTurn.text('Place a white piece, ' + playerWhite + '!');
-    $playerTurn.removeClass("textBlack").addClass("textWhite");
+    $playerTurn.removeClass("textBlack").removeClass("textRed").addClass("textWhite");
 
   }
 };
@@ -239,6 +239,7 @@ function clearBoard() {
   printScore();
   playerBlack;
   playerWhite;
+  whoseTurn();
 }
 
 function checkWin(){
@@ -274,8 +275,6 @@ function checkWin(){
   if(!hasValidMove) {
     //Once we finish looping the board, if validMove is still false, game end
     document.getElementById('playerTurn').innerHTML = 'GAME OVER. See score below!';
-    document.querySelector('.box').style.color = "white";
-    document.querySelector('.box').style.fontSize = "15px";
-    console.log("No more valid moves, press OK to view final score!");
+    $playerTurn.addClass('textRed');
   }
 };
