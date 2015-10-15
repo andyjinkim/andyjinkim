@@ -56,27 +56,66 @@ function getElements($start, direction, color){
         if ($('#'+id).hasClass(color)) {
           break;
         }
-        row--;
       }
-      break;
     case 'up-right':
-      break;
+      row--, column++;
+      while (row>=0 && column<8 && !(isEmpty($('#'+id)))){
+        elements.push($('#'+id));
+        if ($('#'+id).hasClass(color)) {
+          break;
+        }
+      }
     case 'right':
-      break;
+      row++;
+      while (row<8 && !(isEmpty($('#'+id)))){
+        elements.push($('#'+id));
+        if ($('#'+id).hasClass(color)) {
+          break;
+        }
+      }
     case 'down-right':
-      break;
+      row++, column++;
+      while (row<8 && column<8  && !(isEmpty($('#'+id)))){
+        elements.push($('#'+id));
+        if ($('#'+id).hasClass(color)) {
+          break;
+        }
+      }
     case 'down':
-      break;
+      row++;
+      while (row<8 && !(isEmpty($('#'+id)))){
+        elements.push($('#'+id));
+        if ($('#'+id).hasClass(color)) {
+          break;
+        }
+      }
     case 'down-left':
-      break;
+      row++, column--;
+      while (row<8 && column>=0 && !(isEmpty($('#'+id)))){
+        elements.push($('#'+id));
+        if ($('#'+id).hasClass(color)) {
+          break;
+        }
+      }
     case 'left':
-      break;
+      row--;
+      while (row>=0 && !(isEmpty($('#'+id)))){
+        elements.push($('#'+id));
+        if ($('#'+id).hasClass(color)) {
+          break;
+        }
+      }
     case 'up-left':
-      break;
-    default; //if a case doesn't match any of the cases, then break.
-      break;
+      row--, column--;
+      while (row>=0 && column>=0 && !(isEmpty($('#'+id)))){
+        elements.push($('#'+id));
+        if ($('#'+id).hasClass(color)) {
+          break;
+        }
+      }
+    default:
+      break;//if a case doesn't match any of the cases, then break.
   }
-
   return validMove;
 }
 
