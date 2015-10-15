@@ -1,10 +1,15 @@
+// loop through empty boxes to determine if there are any valid moves available
+// make sure that you don't use current functions because they will flip pieces
+
 counter = 0;
 var $boxes = $('.box');
 var empty = 0;
 var white = -1;
 var black = 1;
 var size = 8;
-
+var $scoreboard = $('.scoreboard')
+var oneCounter = 0;
+var minusCounter = 0;
 
 var arr = [
   ["0","0","0","0","0","0","0","0"],
@@ -16,22 +21,6 @@ var arr = [
   ["0","0","0","0","0","0","0","0"],
   ["0","0","0","0","0","0","0","0"]
 ]
-
-
-// should have used jquery $(.black).length && $(.white).length
-var oneCounter = 0;
-var minusCounter = 0;
-for (var i = 0; i < arr.length; i++) {
-  for (var j = 0; j < 8; j++) {
-    if (arr[i][j] === 1) {
-      oneCounter++;
-    }
-    else if (arr[i][j] === -1) {
-      minusCounter++;
-    }
-  }
-}
-console.log('Number of white pieces: ' + oneCounter, 'Number of black pieces: ' + minusCounter)
 
 function isEmpty($clickedBox) {
   if ($clickedBox.hasClass("black") || $clickedBox.hasClass("white")) {
@@ -189,14 +178,20 @@ $boxes.click(function() {
   var $that = $(this);
 
   if (isEmpty($(this))) {
-    console.log('clickable');
     var validMove = walk($(this)); //walk() returns true/false
+    console.log(this)
 
     if (validMove > 0){
       counter++;
+      printScore();
     } else {
       $that.attr('class', 'box') // attr(which attr you'd like to change, what you would like to change it to)
       console.log('invalid move'); // change this to an alert
     }
   }
 })
+
+// should have used jquery $(.black).length && $(.white).length
+function printScore() {
+  $scoreboard.text('Number of white pieces: ' + $('.white').length + ' Number of black pieces: ' + $('.black').length)};
+printScore();

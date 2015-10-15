@@ -31,7 +31,7 @@
       var scoreboard = $('#elapsed')
 
       setInterval(function(){
-        scoreboard.text("Elapsed Time: " + game.elapsedTime ++ + " seconds");
+        scoreboard.text("Elapsed Time: " + game.elapsedTime + " seconds");
         game.currentBox = Math.floor((Math.random()) * 9);
         $(boxes[game.currentBox]).html("");
 

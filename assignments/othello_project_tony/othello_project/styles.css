@@ -14,6 +14,8 @@ html {
   height: 150px;
   border: black 2px solid;
   margin: 0 auto;
+  font-size: 30px;
+  color: white;
 }
 
 #gameboard {
