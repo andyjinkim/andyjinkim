@@ -175,11 +175,11 @@ function inspectLine(elements, color){
 
 
 function walk($start) { //ask bensen about this callback later
-  if (counter%2 === 0) {
+  if (counter%2 === 0) { //player black's turn
     $start.addClass("black");
   }
   else {
-    $start.addClass("white");
+    $start.addClass("white"); //player white's turn
   }
   var color = $start.hasClass('white') ? 'white' : 'black'; //shortened if/else statement
   var directions = ['up', 'up-right', 'right', 'down-right', 'down', 'down-left', 'left', 'up-left']
@@ -195,14 +195,14 @@ function walk($start) { //ask bensen about this callback later
   return validMove;
 }
 
-$boxes.click(function() {
+$boxes.click(function() { //click function
   var $that = $(this);
 
   if (isEmpty($(this))) {
     var validMove = walk($(this)); //walk() returns true/false
     //console.log(this);
 
-    if (validMove > 0){
+    if (validMove > 0){ //reference walk function for validMove variable
       counter++;
       printScore();
       whoseTurn();
@@ -214,8 +214,7 @@ $boxes.click(function() {
   checkWin();
 })
 
-// should have used jquery $(.black).length && $(.white).length
-function printScore() {
+function printScore() { //updates scoreboard on bottom of page with current scores
   $scoreboardOne.text(playerBlack + "'s Score: " + $('.black').length);
   $scoreboardTwo.text(playerWhite + "'s Score: " + $('.white').length);
 };
@@ -235,7 +234,7 @@ function whoseTurn() {
 };
 whoseTurn();
 
-function clearBoard() {
+function clearBoard() { //resets the entire game board
   $(".box").removeClass('white').removeClass('black');
   $("#27,#36").addClass('black');
   $("#28,#35").addClass('white');
@@ -243,14 +242,15 @@ function clearBoard() {
   whoseTurn();
 }
 
-function returnPrompt() {
+function returnPrompt() { //prompts at the beginning of the game whose turn it is
   playerBlack = prompt("What's your name, player one?") || "Black Player";
   playerWhite = prompt("What's your name, player two?") || "White Player";
   whoseTurn();
   printScore();
 }
 
-function checkWin(){
+function checkWin(){ //if there are no valid moves left, innerHTML for player turns
+  //changes to game over text
   // console.log('checkwin firing')
   var hasValidMove = false; //default to there being no valid moves
   var color = 'black';
