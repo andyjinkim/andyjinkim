@@ -7,15 +7,16 @@ var empty = 0;
 var white = -1;
 var black = 1;
 var size = 8;
-var $scoreboard = $('.scoreboard');
+var $scoreboardOne = $('.scoreboardOne');
+var $scoreboardTwo = $('.scoreboardTwo')
 var oneCounter = 0;
 var minusCounter = 0;
 var $playerTurn = $('#playerTurn');
 var playerBlack = prompt("What's your name, player one?") || "Black Player";
 var playerWhite = prompt("What's your name, player two?") || "White Player";
 
-playerBlack;
-playerWhite;
+// playerBlack;
+// playerWhite;
 
 // var arr = [
 //   ["0","0","0","0","0","0","0","0"],
@@ -146,13 +147,13 @@ function getElements($start, direction, color){
   return elements;
 }
 
-// Check line and flip pieces
+// Check line and flip pieces, used for actual game
 function checkLine(elements, color){
   if (elements.length <2){ //either there is an empty space or the immediate next is the same color
     return 0;
   } else if (elements[elements.length-1].hasClass(color)){
       elements.forEach(function($el){
-        $el.attr('class', 'box').addClass(color);
+        $el.attr('class', 'box').addClass(color); // this is where the flip occurs
       })
       return 1;
   } else {
@@ -160,7 +161,8 @@ function checkLine(elements, color){
   }
 }
 
-//Check line only to see if pieces can be flipped, returns true/false
+//Same as checkLine() only to see if pieces CAN be flipped, returns true/false.
+//Used for determining if game is over
 function inspectLine(elements, color){
   if (elements.length<2){
     return 0;
@@ -214,7 +216,9 @@ $boxes.click(function() {
 
 // should have used jquery $(.black).length && $(.white).length
 function printScore() {
-  $scoreboard.text(playerBlack + ": " + $('.black').length + " "+ playerWhite + ": " + $('.white').length)};
+  $scoreboardOne.text(playerBlack + "'s Score: " + $('.black').length);
+  $scoreboardTwo.text(playerWhite + "'s Score: " + $('.white').length);
+};
 printScore();
 
 // live updates whose turn it is & changes font color
@@ -229,7 +233,6 @@ function whoseTurn() {
 
   }
 };
-
 whoseTurn();
 
 function clearBoard() {
@@ -237,9 +240,14 @@ function clearBoard() {
   $("#27,#36").addClass('black');
   $("#28,#35").addClass('white');
   printScore();
-  playerBlack;
-  playerWhite;
   whoseTurn();
+}
+
+function returnPrompt() {
+  playerBlack = prompt("What's your name, player one?") || "Black Player";
+  playerWhite = prompt("What's your name, player two?") || "White Player";
+  whoseTurn();
+  printScore();
 }
 
 function checkWin(){
@@ -278,3 +286,35 @@ function checkWin(){
     $playerTurn.addClass('textRed');
   }
 };
+
+// make temporary dot that is placed on possible moves for active player
+// function possibleMoves(){
+//   // console.log('checkwin firing')
+//   var hasValidMove = false; //default to there being no valid moves
+//   var color = 'black';
+//   if (counter%2 !== 0) {
+//     color = "white";
+//   }
+//
+//   //Loop through the board, check each empty square to see if there is a valid move
+//   for (i=0; i<=63; i++){
+//     if (isEmpty($('#' + i))){
+//
+//       var directions = ['up', 'up-right', 'right', 'down-right', 'down', 'down-left', 'left', 'up-left']
+//       var validMove = 0;
+//       for (var j = 0; j < directions.length; j++) {
+//         //loop through the directions
+//         var elements = getElements($('#'+i), directions[j], color);
+//         validMove += inspectLine(elements, color);
+//         //console.log("===========",validMove)
+//       }
+//       if (validMove>0){
+//         //if we detect a valid move, break loop, game can continue
+//         hasValidMove = true;
+//         console.log('hasValidMove, id: ', i);
+//         break;
+//         return;//stops function
+//       }
+//     }
+//   }
+// }
