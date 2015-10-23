@@ -1,0 +1,7 @@
+<h1>2015-2016 Brooklyn Nets Starting Lineup</h1>
+<div>
+  <% @photos.each_with_index do |pic, index| %>
+  <a href="/players/<%=index%>"><img class="thumbnail" alt="<%= pic[:title] %>" title="<%= pic[:title] %>" src="<%= pic[:url] %>">
+</a>
+<% end %>
+</div>
