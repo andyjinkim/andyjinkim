@@ -13,16 +13,3 @@
  *= require_tree .
  *= require_self
  */
-h1 {
-  text-align: center
-}
-
-div {
-  text-align: center
-}
-
-.thumbnail {
-   width: 175px;
-   height: 127px;
-   border: 2px solid black
- }
