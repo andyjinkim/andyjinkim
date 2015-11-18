@@ -1,9 +1,9 @@
-var $exes = $('.glyphicon-remove')
-var $star = $('.glyphicon-star')
-var $checkboxes = $('.checkboxes')
-var $span = $('span')
-var $paras = $('p')
-var text = $('#todo')
+var $exes         = $('.glyphicon-remove')
+var $star         = $('.glyphicon-star')
+var $checkboxes   = $('.checkboxes')
+var $span         = $('span')
+var $paras        = $('p')
+var text          = $('#todo')
 
 function removeDiv() {
   $(this).parent().hide('slow');
@@ -26,6 +26,9 @@ $('.btn').click(function(){
   text.val('');
   $('p').last().hide();
   $('p').last().show('slow');
+  $exes.click(removeDiv);
+  $star.click(colorStar);
+  $checkboxes.click(strikethrough);
   event.preventDefault();
   $exes = $('.glyphicon-remove')
   $star = $('.glyphicon-star')

@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h1>Welcome to WDitter!</h1>
+  <p>We blatantly copied Twitter because everything is awesome!</p>
+  <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more</a></p>
+</div>
+<% @users.each do |u| %>
+<ul class="list-unstyled">
+  <li><a href="/users/<%= u.id %>"><span class="glyphicon glyphicon-user padded-icon"></span> <%= u.username %></a></li>
+</ul>
+<% end %>
