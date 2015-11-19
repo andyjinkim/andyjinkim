@@ -30,6 +30,14 @@ userRouter.get('/profile', isLoggedIn, function(req,res){
   res.render('profile', {user: req.user})
 })
 
+// facebook routes
+userRouter.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }))
+
+userRouter.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/profile',
+  failureRedirect: '/'
+}))
+
 userRouter.get('/logout', function(req,res){
 // the logout method of req is built in to passport
   req.logout()
