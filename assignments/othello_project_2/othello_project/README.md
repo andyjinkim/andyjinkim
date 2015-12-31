@@ -21,6 +21,8 @@ Othello is a strategy board game for two players, played on an 8×8 uncheckered 
 
 The object of the game is to have the majority of pieces turned to display your color when the last playable empty square is filled.
 
+Once a winner is announced, you have the option of clearing the game board and playing again.
+
 This is a two-player game. Computer AI play is unavailable at this time.
 
 ## *Technologies Used*
