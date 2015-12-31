@@ -29,4 +29,4 @@ This is a two-player game. Computer AI play is unavailable at this time.
 
 ## *Hosting Site*
 
-The application exists as a Git Repository hosted on GitHub and is live for public consumption on Heroku (see above links).
+The application exists as a Git Repository hosted on GitHub and is not yet live for public consumption on Heroku.
