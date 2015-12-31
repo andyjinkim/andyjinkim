@@ -12,8 +12,8 @@ This app was created for Project 1 at General Assembly for the 12-week Web Devel
 ### **Contents**
 
 - Description of Othello
-- Technologies/APIs used
-- Hosting site
+- Technologies Used
+- Hosting Site
 
 ## *Description of Othello*
 
@@ -23,7 +23,7 @@ The object of the game is to have the majority of pieces turned to display your 
 
 This is a two-player game. Computer AI play is unavailable at this time.
 
-## *Technologies/APIs Used*
+## *Technologies Used*
 
 - HTML5, CSS3, jQuery
 
