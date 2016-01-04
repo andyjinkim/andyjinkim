@@ -5,8 +5,6 @@ This is the README markdown for Othello.
 
 GitHub Repository: https://github.com/andyjinkim/andyjinkim/tree/master/assignments/othello_project_2/othello_project
 
-Heroku Application: 
-
 This app was created for Project 1 at General Assembly for the 12-week Web Development Immersive course. 
 
 ### **Contents**
